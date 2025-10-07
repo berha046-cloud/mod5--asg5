@@ -1,0 +1,25 @@
+A simple TCP-based client-server application for transferring text files up to 255 characters.
+Features
+Server
+
+Listens on port 8080
+Accepts filename requests from clients
+Validates filenames (prevents path traversal attacks)
+Checks file size (max 255 bytes)
+Sends file content or appropriate error messages
+Handles multiple sequential client connections
+
+Client
+
+Connects to server on localhost
+Sends filename as command-line argument
+Receives and displays file content or error messages
+Clear output formatting
+
+Error Handling
+The implementation handles these error conditions:
+
+Invalid filename: Rejects filenames with ".." or "/" to prevent path traversal
+File not found: Returns error when file doesn't exist
+File size exceeds limit: Checks file size before sending
+Connection errors: Handles socket creation, connection, and I/O failures
